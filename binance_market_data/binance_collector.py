@@ -12,12 +12,11 @@ import time
 import sys
 
 from datetime import datetime, timezone
-from config import FUTURES_BASE_URL
 from config import MARKET_URLS
 
 # При запуске передаем два параметра: тип рынка и торговый инструмент.
 # Примеры:
-# python3 binance_collector.py futures btcusdt
+# python3 binance_collector.py usdm_futures btcusdt
 # python3 binance_collector.py spot btcusdt
 
 if len(sys.argv) < 3:
@@ -45,3 +44,26 @@ url = f"{base_url}{symbol}@bookTicker"
 # Имя файла формируется автоматически.
 FILE_NAME = f"{symbol}_{market_type}_raw.csv"
 
+# Очередь разделяет получение WebSocket-сообщений и запись данных в CSV.
+data_queue = queue.Queue()
+
+# Последняя полученная котировка хранится для вывода состояния в Terminal.
+latest_data = None
+
+
+def writer_worker():
+    """
+    Забирает строки из очереди и записывает их в CSV.
+    """
+
+    with open(FILE_NAME, "a", newline="") as file:
+        writer = csv.writer(file)
+
+        while True:
+            row = data_queue.get()
+
+            if row is None:
+                break
+
+            writer.writerow(row)
+            data_queue.task_done()
