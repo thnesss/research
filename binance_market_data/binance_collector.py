@@ -22,7 +22,7 @@ from config import MARKET_URLS
 if len(sys.argv) < 3:
     print(
         "Укажите рынок и инструмент: "
-        "Например: python3 binance_collector.py futures btcusdt"
+        "Например: python3 binance_collector.py usdm_futures btcusdt"
     )
     sys.exit()
 
