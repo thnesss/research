@@ -1,3 +1,6 @@
-# Настройки подключения к Binance
+# Адреса WebSocket для разных рынков Binance.
 
-FUTURES_BASE_URL = "wss://fstream.binance.com/ws/"
+MARKET_URLS = {
+    "futures": "wss://fstream.binance.com/ws/",
+    "spot": "wss://stream.binance.com:9443/ws/"
+}
