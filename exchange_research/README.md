@@ -21,4 +21,4 @@
 
 ## Статус
 
-In progress
+Done
