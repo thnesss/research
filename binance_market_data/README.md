@@ -156,3 +156,15 @@ CSV
 - настройки;
 - документация;
 - небольшие sample-файлы.
+
+## Визуализация данных
+
+Отдельный Jupyter Notebook с графиками и сравнением инструментов:
+
+[Открыть market_visualizations.ipynb](market_visualizations.ipynb)
+
+В ноутбуке представлены:
+- Binance BTC Spot vs Perpetual
+- Binance ETH Spot vs Perpetual
+- SPB BTC Perpetual vs Index
+- SPB ETH Perpetual vs Index
