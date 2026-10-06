@@ -1,3 +1,7 @@
-websocket-client
 certifi
+matplotlib
+numpy
 pandas
+plotly
+requests
+websocket-client
